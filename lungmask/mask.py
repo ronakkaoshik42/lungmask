@@ -12,6 +12,10 @@ import logging
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 warnings.filterwarnings("ignore", category=UserWarning)
 
+torch.set_num_threads(10)
+
+torch.cuda.device(2)
+
 # stores urls and number of classes of the models
 model_urls = {('unet', 'R231'): ('https://github.com/JoHof/lungmask/releases/download/v0.0/unet_r231-d5d2fc3d.pth', 3),
               ('unet', 'LTRCLobes'): (
